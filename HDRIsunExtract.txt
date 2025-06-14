@@ -1,0 +1,389 @@
+set cut_paste_input [stack 0]
+version 15.1 v4
+push $cut_paste_input
+Group {
+ name HDRI_SunLight_Extract
+ selected true
+ xpos -687
+ ypos -140
+ addUserKnob {20 SunExtract}
+ addUserKnob {6 Enable l EnableEdits +STARTLINE}
+ Enable true
+ addUserKnob {12 SunLocaction}
+ SunLocaction {2454 1109}
+ addUserKnob {26 ""}
+ addUserKnob {20 Analysis l HDRIDataAnalysis n 1}
+ addUserKnob {68 CurveTool l HDRIDataAnalysisCheck M {"EDITED HDRI" "RAW HDRI" ""}}
+ CurveTool "RAW HDRI"
+ addUserKnob {41 go l Analyze T CurveTool1.go}
+ addUserKnob {41 maxlumapixvalue l "Maximum Luminence Pixel value" T CurveTool1.maxlumapixvalue}
+ addUserKnob {41 minlumapixvalue l "Minimum Luminence Pixel value" T CurveTool1.minlumapixvalue}
+ addUserKnob {26 ""}
+ addUserKnob {20 endGroup_2 n -1}
+ addUserKnob {6 SunColor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {20 SunExtracter l SunExtractor n 1}
+ addUserKnob {3 Value l MinRange}
+ Value 2
+ addUserKnob {3 Value1 l MaxRange}
+ Value1 30
+ addUserKnob {26 ""}
+ addUserKnob {3 Value2 l ClampValue}
+ Value2 40
+ addUserKnob {6 Clamp l EnableClamp +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {6 Neutralize l NeutralizeSunColor +STARTLINE}
+ addUserKnob {18 SunColor}
+ SunColor {34.21856689 22.33712006 8.07938385}
+ addUserKnob {6 SunColor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {20 endGroup_1 n -1}
+ addUserKnob {26 ""}
+ addUserKnob {20 RotoSun l AutoRotoSun n 1}
+ addUserKnob {26 AutoSunRoto -STARTLINE T "To work the auto Roto first need to set the SunLocaction.\nbased on the Locaction Roto will create automatcaly \n"}
+ addUserKnob {6 RotoSwitch l Enbale_AutoRoto +STARTLINE}
+ addUserKnob {16 SunScale l ScaleRoto}
+ SunScale 0.21
+ addUserKnob {16 EdgeSoft}
+ EdgeSoft 0.33
+ addUserKnob {26 ""}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 _1 l SunExtract T "Created BY Pramod.g\nhttps://pramod_pro.artstation.com/"}
+ addUserKnob {26 _2 l "" +STARTLINE T "HDRI Sun Light Extract :-V1.0"}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x3c9318ff
+  label "Auto Roto"
+  note_font "Segoe UI Black Bold"
+  note_font_size 70
+  note_font_color 0xff
+  xpos 109
+  ypos 20
+  appearance Border
+  bdwidth 435
+  bdheight 282
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode30
+  tile_color 0x568987ff
+  label SunExtract
+  note_font "Segoe UI Black Bold"
+  note_font_size 100
+  note_font_color 0xff
+  xpos -47
+  ypos -1042
+  appearance Border
+  bookmark false
+  bdwidth 1319
+  bdheight 1822
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode72
+  tile_color 0x3c9318ff
+  label "Manual Roto"
+  note_font "Segoe UI Black Bold"
+  note_font_size 70
+  note_font_color 0xff
+  xpos 596
+  ypos 22
+  appearance Border
+  bdwidth 435
+  bdheight 282
+ }
+ Roto {
+  inputs 0
+  output alpha
+  cliptype none
+  curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097664}
+    {t x44800000 x44428000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Ellipse1 512 bezier
+     {{cc
+       {f 8192}
+       {px x447bc000
+        {xb8d6458a 0}
+        {x39807358 x3951b718}
+        {x38d6458a 0}
+        {0 xb8d64588}
+        {x39f66a56 x39e171a0}
+        {0 x38d64588}
+        {x38d6458a 0}
+        {x39807358 x3a252696}
+        {xb8d6458a 0}
+        {0 x38d64588}
+        {x3827c5ac x39e171a0}
+        {0 xb8d64588}}}     idem}
+     {t
+   {{x447bc000 x3988509c}}
+   {{x447bc000 x39d6f545}}
+   {{x447bc000 0}}
+   {=SunLocaction
+    {{x447bc000 x4523e000}}}
+   {=SunLocaction
+    {{x447bc000 x43d90000}}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {=10000/SunScale
+    {{0 x48927c00}
+     {x447bc000}}}
+   {=10000/SunScale
+    {{0 x48927c00}
+     {x447bc000}}}
+   {{x447bc000 1}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 1}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 1}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 1}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 0}}
+   {{x447bc000 1}}}
+     {a osw x41200000 osf 0 str 1 spx x44800000 spy x44428000 sb 1 ltn x447bc000 ltm x447bc000 tt x40e00000 ff x40a00000 fx
+   {=90*EdgeSoft 1}     fy
+   {=90*EdgeSoft 1}}}}}}}
+  toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { selectCurves str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 tt 7 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+  toolbar_brush_hardness 0.200000003
+  toolbar_source_transform_scale {1 1}
+  toolbar_source_transform_center {1024 778}
+  colorOverlay {0 0 0 0}
+  lifetime_type "all frames"
+  lifetime_start 1007
+  lifetime_end 1007
+  motionblur_shutter_offset_type centred
+  feather {{90*EdgeSoft}}
+  feather_falloff 5
+  source_black_outside true
+  name Roto1
+  xpos 168
+  ypos 182
+  cached true
+ }
+ Input {
+  inputs 0
+  name Input1
+  xpos 503
+  ypos -804
+ }
+ Dot {
+  name Dot12
+  xpos 537
+  ypos -702
+ }
+set N7b468400 [stack 0]
+ Dot {
+  name Dot11
+  xpos 1169
+  ypos -702
+ }
+ Dot {
+  name Dot15
+  xpos 1169
+  ypos -207
+ }
+set N2844dc00 [stack 0]
+push $N7b468400
+ Keyer {
+  operation "luminance key"
+  range {{1*Value} {1*Value1} 0 20000000}
+  name Keyer1
+  xpos 503
+  ypos -640
+ }
+ Premult {
+  name Premult1
+  xpos 503
+  ypos -569
+ }
+ Dot {
+  name Dot8
+  xpos 539
+  ypos -503
+ }
+set N7b469000 [stack 0]
+ Dot {
+  name Dot9
+  xpos 682
+  ypos -503
+ }
+ Clamp {
+  maximum {{1*Value2}}
+  name Clamp1
+  xpos 648
+  ypos -450
+ }
+push $N7b469000
+ Switch {
+  inputs 2
+  which {{Clamp x1 0}}
+  name Switch3
+  xpos 505
+  ypos -444
+ }
+ Dot {
+  name Dot6
+  xpos 539
+  ypos -398
+ }
+set N7b469c00 [stack 0]
+ Dot {
+  name Dot7
+  xpos 682
+  ypos -398
+ }
+ Saturation {
+  saturation 0
+  name Saturation1
+  xpos 648
+  ypos -339
+ }
+push $N7b469c00
+ Switch {
+  inputs 2
+  which {{Neutralize x1 0}}
+  name Switch2
+  xpos 505
+  ypos -339
+ }
+ Dot {
+  name Dot14
+  xpos 539
+  ypos -254
+ }
+ Switch {
+  inputs 2
+  which {{CurveTool}}
+  name Switch5
+  xpos 505
+  ypos -210
+ }
+ CurveTool {
+  operation "Max Luma Pixel"
+  ROI {-13720 -9940 18340 11960}
+  autocropdata {-8250 -5780 12780 7760}
+  intensitydata {{curve x1 -7.824129455e-09} {curve x1 -2.030218549e-09} {curve x1 2.879199157e-09} {curve x1 -7.824129455e-09}}
+  maxlumapixdata {{curve x1 2454} {curve x1 1115}}
+  maxlumapixvalue {{curve x1 346112} {curve x1 243712} {curve x1 71680}}
+  minlumapixdata {{curve x1 2990} {curve x1 215}}
+  minlumapixvalue {{curve x1 2.670288086e-05} {curve x1 0.0002765655518} {curve x1 0.000186920166}}
+  name CurveTool1
+  xpos 505
+  ypos -149
+ }
+ Dot {
+  name Dot1
+  xpos 539
+  ypos -35
+ }
+set N7b48ec00 [stack 0]
+ Dot {
+  name Dot2
+  xpos 375
+  ypos -35
+ }
+push 0
+ Merge2 {
+  inputs 2+1
+  name Merge2
+  label "Bbox: \[value bbox]"
+  xpos 341
+  ypos 182
+ }
+ Dot {
+  name Dot3
+  xpos 375
+  ypos 449
+ }
+ Input {
+  inputs 0
+  name Mask
+  xpos 905
+  ypos 199
+  number 1
+ }
+push $N7b48ec00
+ Dot {
+  name Dot4
+  xpos 707
+  ypos -35
+ }
+push 0
+ Merge2 {
+  inputs 2+1
+  name Merge1
+  label "Bbox: \[value bbox]"
+  xpos 673
+  ypos 193
+ }
+ Dot {
+  name Dot5
+  xpos 707
+  ypos 449
+ }
+ Switch {
+  inputs 2
+  which {{RotoSwitch}}
+  name Switch1
+  xpos 505
+  ypos 445
+ }
+push $N2844dc00
+ Dot {
+  name Dot10
+  xpos 1169
+  ypos 551
+ }
+ Switch {
+  inputs 2
+  which {{Enable}}
+  name Switch4
+  xpos 505
+  ypos 548
+ }
+ Output {
+  name Output1
+  xpos 505
+  ypos 666
+ }
+end_group
